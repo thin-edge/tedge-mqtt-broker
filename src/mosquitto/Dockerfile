@@ -20,5 +20,5 @@ LABEL org.opencontainers.image.base.name="alpine:3.18"
 VOLUME /etc/tedge/mosquitto-conf
 
 COPY mosquitto.conf /mosquitto/config/mosquitto.conf
-COPY default.conf /etc/tedge/mosquitto-conf/10_default.conf
+COPY tedge-mosquitto.conf /etc/tedge/mosquitto-conf/
 CMD ["/usr/sbin/mosquitto", "-c", "/mosquitto/config/mosquitto.conf"]
