@@ -19,6 +19,9 @@ LABEL org.opencontainers.image.base.name="alpine:3.18"
 
 VOLUME /etc/tedge/mosquitto-conf
 
+COPY entrypoint.sh /entrypoint.sh
 COPY mosquitto.conf /mosquitto/config/mosquitto.conf
 COPY tedge-mosquitto.conf /etc/tedge/mosquitto-conf/
+
+ENTRYPOINT [ "/entrypoint.sh" ]
 CMD ["/usr/sbin/mosquitto", "-c", "/mosquitto/config/mosquitto.conf"]
