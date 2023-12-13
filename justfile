@@ -1,6 +1,7 @@
 set dotenv-load
 
 export VERSION := env_var_or_default("VERSION", `date +'%Y%m%d.%H%M'`)
+export IMAGE_NAME := "tedge-mqtt-broker"
 
 # Generate a version
 generate_version:
@@ -16,8 +17,8 @@ release:
 
 # Build a local docker image
 build-local:
-    docker build -t tedge-mosquitto -f src/Dockerfile src
+    docker build -t {{IMAGE_NAME}} -f src/mosquitto/Dockerfile src/mosquitto
 
 # Run/start a local docker image (for local validation)
 run-local PORT="1883" *ARGS="": build-local
-    docker run --rm -it -p {{PORT}}:1883 {{ARGS}} tedge-mosquitto
+    docker run --rm -it -p {{PORT}}:1883 {{ARGS}} {{IMAGE_NAME}}
