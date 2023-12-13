@@ -4,6 +4,20 @@ thin-edge.io specific MQTT broker (using tedge-mqtt-broker) container which incl
 
 ## Development
 
+All of the tasks in the projects use [just](https://github.com/casey/just). Please install just before using any of the instructions.
+
+### Trigger a new release
+
+1. Switch to the main branch (on the main repo)
+
+2. Run the release task
+
+    ```sh
+    just release
+    ```
+
+    The task will create a git tag and push it to the configured remote origin.
+
 ### Run and validate a local mqtt broker
 
 You can run/start a local container with the MQTT broker by using [just](https://github.com/casey/just) task runner.
